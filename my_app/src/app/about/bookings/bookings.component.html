@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title slot="start"> Book - {{ selectedplace.title }} </ion-title>
+    <ion-button slot="primary" (click)="close()">
+      <ion-icon name="close" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (submit)="hello()">
+    <mat-card>
+      <mat-form-field style="width: 100%;">
+        <mat-label>Input</mat-label>
+        <input type="text" matInput formControlName="name" />
+      </mat-form-field>
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">From</ion-label>
+          <ion-datetime
+            displayFormat="YY MMMM DD"
+            [min]="selectedplace.AvailableFrom"
+            [max]="selectedplace.AvailableTo"
+            formControlName="from"
+            (ionChange)="hello1($event)"
+          ></ion-datetime>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">TO</ion-label>
+          <ion-datetime
+            displayFormat="YY MMMM DD"
+            [min]="from"
+            [max]="selectedplace.AvailableTo"
+            formControlName="to"
+          ></ion-datetime>
+        </ion-item>
+      </ion-list>
+      <input
+        type="file"
+        (change)="image($event)"
+        style="visibility: hidden;"
+        #file
+        (change)="image($event)"
+      />
+      <p>
+        <ion-text color="warning"
+          >* Upload a image of the person Visiting the place</ion-text
+        >
+      </p>
+      <ion-button (click)="file.click()">Pick Image</ion-button>
+      <div *ngIf="imageurl != ' '">
+        <ion-img [src]="imageurl"></ion-img>
+      </div>
+      <p *ngIf=""></p>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-button type="submit">Book</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </mat-card>
+
+    <!-- <input type="file" (change)="" /> -->
+  </form>
+
+  <!-- <ion-img src='http://localhost:3000/public/images/download.png-1587039549987.png'></ion-img> -->
+</ion-content>
+
+<style>
+  mat-card {
+    width: 90%;
+    margin: auto auto;
+  }
+  ion-list,
+  ion-item {
+    background-color: white;
+  }
+</style>

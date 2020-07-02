@@ -1,0 +1,77 @@
+.card {
+  height: 100%;
+  width: 100%;
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+
+  // position: relative;
+
+  backface-visibility: hidden;
+  transition: all 1s;
+  &_side {
+    height: 100%;
+    width: 100%;
+    perspective: 1000px;
+    -moz-perspective: 1000px;
+    background-blend-mode: screen;
+
+    backface-visibility: hidden;
+    transition: transform 1s;
+    &-front {
+      // position: absolute;
+
+      object-fit: cover;
+      // backface-visibility: hidden;
+      z-index: 10000;
+    }
+    &-back {
+      // position: absolute;
+
+      backface-visibility: hidden;
+      transform: rotate(180deg);
+    }
+  }
+
+  // &:hover,
+  // &:active &_side-front {
+  //   transform: rotate(180deg);
+  //   backface-visibility: hidden;
+  //   // -web-kit-backface-visibility:hidden;
+  // }
+  // &:hover,
+  // &:active &_side-back {
+  //   transform: rotate(0deg);
+  //   // z-index: 10000000;
+  // }
+}
+
+// @media (max-width:900px){
+//     .card:not(:nth-child(2n)){
+//         margin-top: -200px;
+//     }
+// }
+
+// @media (max-width: 822px) {
+//   .card:not(:nth-child(1)) {
+//     margin-top: -200px;
+//   }
+// }
+
+// @media (min-width: 823px) {
+//   .card:not(:nth-child(1)) {
+//     margin-top: -200px;
+//   }
+//   .card:nth-child(2) {
+//     margin-top: 0px;
+//   }
+// }
+
+// @media (min-width: 1225px) {
+//   .card:not(:nth-child(1)) {
+//     margin-top: -200px;
+//   }
+//   .card:nth-child(2),
+//   .card:nth-child(3) {
+//     margin-top: 0px;
+//   }
+// }

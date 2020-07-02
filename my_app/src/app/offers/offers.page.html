@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-menu-button slot="start"></ion-menu-button>
+    <ion-title slot="primary">offers</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="new">
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset="4" offset-md="5">
+        <div *ngIf="!datapresent" style="height: 100vh;">
+          <div style="margin: auto auto; height: 100%;">
+            <mat-spinner></mat-spinner>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="main-container" *ngIf="datapresent">
+    <div class="card" *ngFor="let item of loadedplace">
+      <div class="card_side card_side-front">
+        <mat-card class="card-1">
+          <ion-grid>
+            <ion-row class="ion-align-items-start">
+              <ion-col>
+                <mat-card-header class="ion-padding-end">
+                  {{item.title}}
+                </mat-card-header>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <ion-img [src]="item.imageurl"></ion-img>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                {{item.description}}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="ion-text-end">
+                <ion-button [routerLink]="['/places/about',item._id]">
+                  Book
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </mat-card>
+      </div>
+
+      <!-- <div class="card_side card_side-back">
+        <mat-card class="card-2">
+          <mat-card-header>
+            <mat-card-title>{{item.title}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col class="ion-padding-start">
+                  <p>{{item.description}}</p>
+                </ion-col>
+                <ion-col class="ion-text-end">
+                  <h1>{{item.price}}</h1>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </mat-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col class="ion-text-end">
+                <ion-button [routerLink]="['/places/about',item._id]">
+                  Book
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </mat-card>
+      </div> -->
+    </div>
+  </div>
+</ion-content>
+
+<style>
+  .main-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+    margin: 0 auto;
+  }
+
+  ion-img {
+    height: 200px;
+  }
+
+  @media only screen and (min-width: 500px) {
+    .main-container {
+      width: 80%;
+      margin: 0, auto;
+    }
+  }
+</style>

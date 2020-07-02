@@ -1,0 +1,234 @@
+*{
+
+}
+.main-container1{
+    height: 100vh;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    transition:all 2s;
+    position: relative;
+    // background-image: url("../../assets//wave.svg");
+    background-repeat: no-repeat;
+    animation: animate2 30s infinite;
+    z-index: 1000;
+    .main-container2{
+        height: 50%;
+        width: 50%;
+        background:linear-gradient(to top right,#b90c13,#ed1c24);
+        // clip-path: circle(25% at 75% 30%);
+        
+        color: red;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        // color: red;
+        transition:2s;
+        color: blue;
+        opacity: 0.7;
+        color: rgba(255,255,255,0);
+        // animation: animate 2s 10 0s;
+    }
+    
+       .main-container2:hover{
+        // clip-path: inset(0% 0% 0% 0%);
+        color: red;
+       }
+}
+
+.wave{
+    position: absolute;
+    top: 50%;
+}
+
+@keyframes animate2{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: 100px;
+    }
+}
+
+
+@keyframes animate{
+    0%{
+        clip-path: circle(20% at 50% 50%);
+        color: rgba(255,255,255,0);
+
+    }
+    50%{
+        clip-path: circle(30% at 50% 50%);
+        color: rgba(255,255,255,1);
+
+    }
+    100%{
+        clip-path: circle(20% at 50% 50%);
+        color: rgba(255,255,255,0);
+
+}
+}
+
+
+
+.wave{
+    position: relative;
+    width: 100vw;
+    height: 20%;
+    
+  }
+
+  .wave1{
+    background: url("../../assets//waves.svg");
+    position: absolute;
+    width: 100%;
+    background-repeat: repeat no-repeat;
+    /* animation: animate11 30s infinite; */
+  
+  }
+  .wave2{
+    background: url("../../assets//waves.svg");
+    position: absolute;
+    width: 100%;
+    background-repeat: repeat no-repeat;
+    animation-delay: 0.5s;
+    /* animation: animate12 30s infinite; */
+  }
+
+  @keyframes animate11{
+    0%{
+      background-position-x: 0;
+    }
+    100%{
+      background-position-x: 100vh;
+    }
+  }
+  @keyframes animate12{
+    0%{
+      background-position-x: 100vh;
+    }
+    100%{
+      background-position-x: 0;
+    }
+  }
+
+  
+
+.card{
+    height: 50vh;
+    width: 200px;
+    perspective: 1000px;
+    -moz-perspective: 1000px;
+
+    position: relative;
+  
+    backface-visibility: hidden;
+    transition: transform 1s;
+    &_side{
+        height: 50vh;
+        width: 100%;
+        background-color: blue;
+        perspective: 1000px;
+    -moz-perspective: 1000px;
+    background-blend-mode: screen;
+  
+    backface-visibility: hidden;
+    transition: transform 1s;
+        &-front{
+            position: absolute;
+            background: url("../../assets//burj-al-arab-hotel-3840x2160-dubai-uae-travel-booking-pool-378.jpg");
+            object-fit: cover;
+            backface-visibility: hidden;
+        }
+        &-back{
+            position: absolute;
+            background-color: burlywood;
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+        }
+
+
+    }
+
+    &:hover &_side-front{
+        transform: rotateY(180deg);
+    }
+    &:hover &_side-back{
+        transform: rotateY(0);
+    }
+}
+
+
+
+
+.list{
+    li{
+    color: coral;
+    &:not(:last-child){
+        color: blue;
+    }
+    }
+   
+}
+.new1{
+    height: 200px;
+}
+
+.new{
+    width: 10opx;
+    height: 100px;
+    background: linear-gradient(to top right ,red 0%,orange 50%,blue 100%) ,url("../../assets//covid.jpg ");
+}
+
+
+
+
+
+.check-bg{
+    height: 80vh;
+    width: 80vw;
+    background:linear-gradient(105deg,red 35%, transparent) ,url('../../assets/burj-al-arab-hotel-3840x2160-dubai-uae-travel-booking-pool-378.jpg') no-repeat center center;
+    background-size: cover;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin: auto auto;
+    transition: all 0.5s;
+
+    background-position: 67%;
+    &__list{
+        color: white;
+        background-image:linear-gradient(110deg,orange 50%,white 50%);
+        background-size: 200%;
+        transition: all 0.5s;
+
+        &:hover,&:active{
+            background-position: 100%;
+            color: black;
+        }
+    }
+   
+}
+
+
+
+.main{
+    height: 100px;
+    width: 100px;
+    &-lable{
+        width: 100%;
+        height: 100%;
+        &-div{
+
+        }
+    }
+    &-box:checked ~&-lable{
+        background-color: yellowgreen;
+    }
+}
+
+
+
+  
+
+  
