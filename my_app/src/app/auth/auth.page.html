@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Auth</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="form">
+    <ion-segment value="login"  style="color: black" (ionChange)="change($event)">
+      <ion-segment-button value="login">
+        <ion-label><ion-text color="secondary">login </ion-text></ion-label>
+      
+      </ion-segment-button>
+      <ion-segment-button value="signin">
+        <ion-label><ion-text color="secondary">signup </ion-text></ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  
+  
+    <ion-grid>
+      <ion-row>
+        <ion-col size-md="8" offset-md="2">
+          <mat-card>
+            <mat-card-header class="ion-text-center">
+                <mat-card-title><ion-text >{{Option}}</ion-text></mat-card-title> 
+            </mat-card-header>
+            <mat-card-content>
+                <form (ngSubmit)="authenticate()" [formGroup]="form" >
+                  <mat-form-field>
+                    <input type="email" matInput placeholder="Email" formControlName="email">
+                  </mat-form-field>
+                  <mat-error *ngIf="form.get('email').invalid" >*Enter a valid email</mat-error>
+                  <mat-form-field>
+                    <input type="password" matInput placeholder="password" formControlName="password">
+                  </mat-form-field>
+                  <mat-error *ngIf="form.get('password').invalid" >*Enter a valid password of lenght 8</mat-error>
+                  <ion-row>
+                    <ion-col class="ion-text-center ion-padding">
+                <button mat-raised-button color="primary" type="submit" >{{Option}}</button>
+                    </ion-col>
+                  </ion-row>                
+                </form>
+            </mat-card-content>
+           
+        </mat-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </div>
+</ion-content>
+
+
+<style>
+
+ mat-card-header{
+   display: flex;
+   justify-content: center;
+ }
+ mat-form-field{
+   width: 100%;
+ }
+</style>

@@ -1,0 +1,40 @@
+<ion-app>
+  <ion-menu contentId="main-content">
+    <ion-header class="header">
+      <ion-title>
+        <h1>Shopie !</h1>
+      </ion-title>
+    </ion-header>
+    <ion-content>
+      <ion-menu-toggle>
+        <ion-list color="primary">
+          <ion-item
+            lines="none"
+            style="background-color: white; color: black;"
+            button
+            routerLink="/booking/hello"
+          >
+            <ion-icon color="yellow" name="cash-outline"></ion-icon>
+            <ion-label class="ion-padding-start">Bookings</ion-label>
+          </ion-item>
+          <ion-item lines="none" routerLink="/places/new-offers" button>
+            <ion-icon color="yellow" name="add-outline"></ion-icon>
+            <ion-label class="ion-padding-start">Add Offers</ion-label>
+          </ion-item>
+          <ion-item lines="none" button routerLink="/places/account">
+            <ion-icon color="yellow" name="key-outline"></ion-icon>
+            <ion-label class="ion-padding-start">Your Account</ion-label>
+          </ion-item>
+          <!-- <ion-item lines="none" routerLink="/places/coda">
+            <ion-label>Coda</ion-label>
+          </ion-item> -->
+          <ion-item lines="none" button (click)="logout()">
+            <ion-icon color="yellow" name="log-out-outline"></ion-icon>
+            <ion-label class="ion-padding-start">Logout</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-menu-toggle>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet Id="main-content"></ion-router-outlet>
+</ion-app>

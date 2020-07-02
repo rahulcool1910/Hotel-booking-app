@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button defaultHref="/places/offers" slot="start"></ion-back-button>
+    <ion-title>booking</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-grid >
+    <ion-row class="ion-text-center ion-align-items-center " >
+          <ion-col size-md="8" offset-md="2">
+         <mat-spinner *ngIf="!bookings.length" style="margin: auto auto" ></mat-spinner>
+
+         <div *ngIf="bookings.length">
+   
+            <mat-accordion displayMode="default" [multi]="true" *ngFor="let item of bookings" class="ion-padding">
+              <mat-expansion-panel [hideToggle]="false">
+                  <mat-expansion-panel-header>{{item.name}}</mat-expansion-panel-header>
+                   <ion-row>
+                    <ion-col>
+                      <p>From</p>
+                    <ion-badge color="tertiary">
+                      {{item.from|slice:0:10}}
+                    </ion-badge>
+                    </ion-col> 
+                    <ion-col>   
+                      <p>To</p>
+                    <ion-badge color="tertiary">
+                      {{item.to|slice:0:10}}
+                      </ion-badge>
+                    </ion-col>
+                   </ion-row>
+                   <ion-img [src]="item.image"></ion-img>
+                  <mat-action-row>
+                      <button mat-button >Action1</button>
+                  </mat-action-row>
+              </mat-expansion-panel>
+            </mat-accordion>
+      
+         </div>
+
+              
+          </ion-col>
+    </ion-row>
+   </ion-grid> 
+  
+</ion-content>
+
+
+<style>
+</style>

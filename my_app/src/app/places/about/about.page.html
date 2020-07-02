@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    
+    <ion-title>About || {{place.title}}</ion-title>
+    <ion-back-button defaultHref="/places/offers" slot="start"   ></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ion-text-center" >
+  <div *ngIf="!loaded" >
+    <ion-grid>
+      <ion-row>
+        <ion-col size-md="6" offset="3">
+          <mat-spinner></mat-spinner>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  
+  <div *ngIf="loaded" >
+    <ion-img [src]="place.imageurl" alt=""></ion-img>
+    <ion-button (click)="book()">
+    Book
+  </ion-button>
+  </div>
+</ion-content>
+
+
+<style>
+  @media only screen and (min-width: 500px){
+    ion-img{
+      height: calc( 50vh - 50px );
+      width: 50vw;
+      margin: 0 auto;
+    }
+  }
+</style>
