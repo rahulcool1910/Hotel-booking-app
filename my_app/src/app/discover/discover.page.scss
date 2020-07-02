@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main{
+    height: 60vh;
+    position: relative;
+    width: 80vw;
+    background-blend-mode: screen;
+    background-image:linear-gradient(to right bottom,rgba(96, 202, 117, 0.7),rgba(193, 133, 118, 0.7)) ,url('http://localhost:3000/public/offer-images/street.jpg');
+    background-size: cover;
+    clip-path: polygon(0% 0%,100% 0%,100% 82%,0% 100%);
+
+    background-position:50% 50%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-position: top;
+    margin: auto auto;
+    clip-path: (0% 0%,100% 0%,100% 82%,0% 100%);
+   
+
+    .main1{    
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+      backface-visibility: hidden;
+      text-align: center;
+    .main-text{
+        margin-bottom: 10px;
+        .id1{
+          display: block;
+          font-size: 66px;
+          font-weight: 500;
+          letter-spacing: 20px;
+          animation-name: slideIn;
+          animation-duration: 2s;
+          animation-delay: 2s;
+          @media (max-width:500px){
+              font-size: 30px;
+              font-weight: 500;
+              letter-spacing: 20px;
+          }
+        }
+        .id2{
+          display: inline-block;
+          font-weight: 500;
+          letter-spacing: 4px;
+          animation-name: slideOut;
+        animation-duration: 2s;
+        animation-delay: 2s;
+  
+        @media (max-width:500px){
+            display: block;
+            font-weight: 500;
+            letter-spacing: 4px;
+            font-size: 14px;
+        }
+      }
+  
+    }
+    
+  
+      .btn-div{
+        transition: all 1s ;
+        --color:black;
+        position: relative;
+
+        .btn{
+        --border-radius: 100px;
+        display: inline-block;
+          --color: beige;
+          --background: #6a64ff;
+        
+      }
+      .btn:hover{
+        transform: translateY(-2px);
+        transform: scale(1.1);
+      }
+      .btn:active{
+         transform: translateY(-1px);
+       }
+       .btn::after{
+        content: "";
+        display: block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        transition: all 2s;
+       }
+       .btn:hover::after{
+        transform: scale(2);
+        opacity: 0;
+      }
+      }
+  }
+   
+}
+//clip-path: polygon(0% 0%,100% 0%,100% 82%,0% 100%);
+//linear-gradient(to right bottom,rgba(169, 99, 99, 0.782),rgba(120, 194, 116, 0.775)) ,
+
+
+
+.breakpoint{
+  //to break a line and give padding;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+  
+  
+  
+
+
+  @keyframes slideIn{
+      0%{
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+      60%{
+        transform: translateX(10%);
+      }
+      100%{
+        opacity: 1;
+        transform: translateX(0);
+      }
+  }
+  @keyframes slideOut{
+    0%{
+      opacity: 0;
+      transform: translatX(100px);
+    }
+    60%{
+      transform: translateX(-10px);
+    }
+    100%{
+      opacity: 1;
+      transform: translateX(0px);
+    }
+}
+
+
+#map{
+  height: 100%;
+  width: 100%;
+  background-color: red;
+}
+
+
+ 
+

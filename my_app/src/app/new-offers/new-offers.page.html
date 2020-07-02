@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button defaultHref="places/offers" slot="start"></ion-back-button>
+    <ion-title slot="end"> new_offers</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form action="" [formGroup]="form">
+  <ion-grid>
+    <ion-row>
+    <ion-col size-md="8" offset-md="2">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title style="border-bottom: 1px solid;">New Offer</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <ion-row>
+                  <ion-col>
+                  
+                      <mat-form-field>
+                        <input type="text" placeholder="Enter the name of your  hotel" matInput formControlName="title">
+                      </mat-form-field>
+                      <mat-error *ngIf="form.get('title').invalid" >Enter a valid Title</mat-error>
+                      <mat-form-field>
+                        <textarea rows="3" cols="50" matInput placeholder="Enter description" formControlName="description"></textarea>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput type="number" placeholder="Price" formControlName="price">
+                      </mat-form-field>
+                      <mat-error *ngIf="form.get('price').invalid" >Enter a price</mat-error>
+                      <mat-error *ngIf="form.get('description').invalid" >Enter a valid description</mat-error>
+                      <ion-item lines="none">
+                        <ion-label>From</ion-label>
+                        <ion-datetime display-format="MMM-DD-YYYY" min="2020-01-01" max="2025-01-01" formControlName="AvailableFrom"></ion-datetime>
+                      </ion-item>
+                      <ion-item lines="none">
+                        <ion-label>To</ion-label>
+                        <ion-datetime display-format="MMM-DD-YYYY" min="2020-01-02" max="2025-01-01" formControlName="AvailableTo"></ion-datetime>
+                      </ion-item>
+                      <input type="file"  style="visibility: hidden;" #file (change)="image($event)">
+                      <p><ion-text color="warning">* Upload a image of the person Visiting the place</ion-text></p>  
+                      <ion-button (click)="file.click()">Pick Image</ion-button>
+                      <div *ngIf="imageurl1!=' '">
+                        <ion-img [src]="imageurl1"  ></ion-img>
+                      </div>
+                      
+                  </ion-col>
+                </ion-row>
+            </mat-card-content>
+            <mat-card-actions align="end"style="padding-right: 10px; width:98%;" >
+                <button mat-raised-button color="primary" type="submit" (click)="submit_offers()">Action</button>
+                
+            </mat-card-actions>
+        </mat-card>
+    </ion-col>
+    </ion-row>
+  </ion-grid>
+</form>
+
+</ion-content>
