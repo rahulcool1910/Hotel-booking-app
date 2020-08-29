@@ -31,7 +31,7 @@ router.post('/login',(req,res,next)=>{
             if(response){
                 bcrypt.compare(req.body.password,response.password)
                     .then(status=>{
-                        const token=jwt.sign({email:response.email,_id:response._id},"ILoveubaby",{expiresIn:(3600*24)})
+                        const token=jwt.sign({email:response.email,_id:response._id},"rahul#cool1910",{expiresIn:(3600*24)})
                         res.json({token:token,expiresIn:3600,_id:response._id})
                     })
                     .catch(err=>{
